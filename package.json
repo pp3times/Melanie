@@ -1,0 +1,22 @@
+{
+  "name": "melanie",
+  "version": "1.0.0",
+  "description": "Discord bot is Melanie",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pp3times/Melanie.git"
+  },
+  "author": "Jeremy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pp3times/Melanie/issues"
+  },
+  "homepage": "https://github.com/pp3times/Melanie#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  }
+}
