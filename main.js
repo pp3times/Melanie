@@ -6,11 +6,13 @@
 // https://imgur.com/gallery/rgwIoJ4
 const Discord = require('discord.js');
 
-const client = new Discord.Client();
+const client = new Discord.Client({ partials: ["MESSAGE", "CHANNEL", "REACTION"] });
 
 const prefix = '=';
 
 const fs = require('fs');
+
+const memberCounter = require('./counters/member-counter');
 
 client.commands = new Discord.Collection();
 
@@ -23,6 +25,14 @@ for(const file of commandFiles){
 
 client.once('ready', () => {
     console.log('Melanie is online!');
+    memberCounter(client);
+});
+
+client.on('guildMemberAdd', guildMember =>{
+    let welcomeRole = guildMember.guild.roles.cache.find(role => role.name === 'Server Member');
+
+    guildMember.roles.add(welcomeRole);
+    guildMember.guild.channels.cache.get("573383931525595146").send(`ยินดีต้อนรับไอเวร <@${guildMember.user.id}> เข้าสู่เซิร์ฟเวอร์อันสดใจของเรา`);
 });
 
 client.on('message', message =>{
@@ -39,9 +49,19 @@ client.on('message', message =>{
         client.commands.get('command').execute(message, args, Discord);
     } else if (command === 'clear'){
         client.commands.get('clear').execute(message, args);
+    } else if (command === 'kick'){
+        client.commands.get('kick').execute(message, args)
+    } else if (command === 'ban'){
+        client.commands.get('ban').execute(message, args)
+    } else if (command === 'mute'){
+        client.commands.get('mute').execute(message, args)
+    } else if (command === 'unmute'){
+        client.commands.get('unmute').execute(message, args)
+    } else if (command === 'reactionrole'){
+        client.commands.get('reactionrole').execute(message, args, Discord, client);
     }
 });
 
-client.login('');
+client.login('ODUwMzIzODU4MTYxNzk1MDgy.YLoDzg.wihq0e28k1hC38vO2HcB2SazQ9E');
 
 
