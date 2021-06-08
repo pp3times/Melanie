@@ -41,27 +41,35 @@ client.on('message', message =>{
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if(command === 'ping'){
-        client.commands.get('ping').execute(message, args);
-    } else if (command === 'github'){
-        client.commands.get('github').execute(message, args);
-    } else if (command === 'command'){
-        client.commands.get('command').execute(message, args, Discord);
-    } else if (command === 'clear'){
-        client.commands.get('clear').execute(message, args);
-    } else if (command === 'kick'){
-        client.commands.get('kick').execute(message, args)
-    } else if (command === 'ban'){
-        client.commands.get('ban').execute(message, args)
-    } else if (command === 'mute'){
-        client.commands.get('mute').execute(message, args)
-    } else if (command === 'unmute'){
-        client.commands.get('unmute').execute(message, args)
-    } else if (command === 'reactionrole'){
-        client.commands.get('reactionrole').execute(message, args, Discord, client);
+    if (command === "ping") {
+      client.commands.get("ping").execute(message, args);
+    } else if (command === "github") {
+      client.commands.get("github").execute(message, args);
+    } else if (command === "command") {
+      client.commands.get("command").execute(message, args, Discord);
+    } else if (command === "clean") {
+      client.commands.get("clean").execute(message, args);
+    } else if (command === "kick") {
+      client.commands.get("kick").execute(message, args);
+    } else if (command === "ban") {
+      client.commands.get("ban").execute(message, args);
+    } else if (command === "mute") {
+      client.commands.get("mute").execute(message, args);
+    } else if (command === "unmute") {
+      client.commands.get("unmute").execute(message, args);
+    } else if (command === "reactionrole") {
+      client.commands
+        .get("reactionrole")
+        .execute(message, args, Discord, client);
+    } else if (command === "clear") {
+      client.commands.get("clear").execute(message, args);
+    } else if (command === "play") {
+      client.commands.get("play").execute(message, args);
+    } else if (command === "leave") {
+      client.commands.get("leave").execute(message, args);
     }
 });
 
-client.login('ODUwMzIzODU4MTYxNzk1MDgy.YLoDzg.wihq0e28k1hC38vO2HcB2SazQ9E');
+client.login("ODUwMzIzODU4MTYxNzk1MDgy.YLoDzg.oPaxA-FuftjtAaqBJLrP6D4sDDI");
 
 
