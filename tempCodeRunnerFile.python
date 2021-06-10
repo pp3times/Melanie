@@ -1,0 +1,25 @@
+""" Sequence XXX """
+ 
+ 
+def main():
+    """ Sequence XXX """
+    count = int(input())
+    num = int(input())
+    if count == 1:
+        print("*")
+    else:
+        print((("*" * count)+" ")*num)
+        for i in range((count // 2) - (1 + ((count % 2) + 1) % 2)):
+            print((("*"+" " * ((i + 1)-1) + "*" + " " * (((count - 4) - (2 * i))) + "*"+" "\
+                * ((i + 1)-1) + "*")+" ") * num)
+        for _ in range((((count % 2) + 1) % 2) + 1):
+            print((("*"+" " * ((((count // 2) - (((count % 2) + 1) % 2)))-1) + "*" \
+                * ((((count % 2) + 1) % 2) + 1)+" " * ((((count // 2) - (((count % 2) \
+                    + 1) % 2)))-1) + "*")+" ") * num)
+        for i in range((count // 2) - (1 + ((count % 2) + 1) % 2) - 1, -1, -1):
+            print((("*"+" " * ((i + 1)-1) + "*" + " " * ((count - 4) - (2 * i)) + "*"+" " * ((i \
+                + 1)-1) + "*")+" ") * num)
+        print((("*" * count)+" ") * num)
+ 
+ 
+main()
